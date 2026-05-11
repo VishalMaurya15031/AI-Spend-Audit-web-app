@@ -1,0 +1,15 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Audit {
+  id           String   @id @default(cuid())
+  email        String
+  reportData   String   // JSON stringified AuditReport
+  aiSummary    String?  // Generated AI Summary
+  createdAt    DateTime @default(now())
+}
